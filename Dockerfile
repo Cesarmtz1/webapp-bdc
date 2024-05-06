@@ -7,10 +7,7 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# SET ENVIRONMENT VARIABLES
-ENV ENVIRONMENT
-ENV API_URL
-ENV API_KEY
+
 # Install dependencies
 RUN npm install
 
