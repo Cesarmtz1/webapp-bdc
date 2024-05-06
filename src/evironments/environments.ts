@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  environment: 'xxt',
-  API_URL: "xxxx",
-  API_KEY:'xxx',
+  environment: '',
+  API_URL: "",
+  API_KEY:'',
 }
