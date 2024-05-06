@@ -23,7 +23,7 @@ export class apiMondayService {
       "boardID":boardID
     }
     //let headers = new HttpHeaders().set('Content-Type', 'application/json')
-    console.log("haciendo solicitud a ")
+    console.log("haciendo solicitud a ",environment.API_URL)
     return this._http.post(`${environment.API_URL}/api/monday/gr`, data, { headers: headers })
 
   }
