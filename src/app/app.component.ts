@@ -8,7 +8,7 @@ import { environment} from 'src/environments/environment
 export class AppComponent implements OnInit{
   title = 'bdc-new';
 
-  OnInit{
+  OnInit(){
     console.log(enviroment.API_URL)
    console.log(environment.API_KEY)
   }
