@@ -10,6 +10,6 @@ export class AppComponent implements OnInit{
 
   OnInit{
     console.log(enviroment.API_URL)
-   console.log(enviroment.API_KEY)
+   console.log(environment.API_KEY)
   }
 }
