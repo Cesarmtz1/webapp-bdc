@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+/*@import 'primeflex/primeflex.scss';
+
+
+/*@import url('/node_modules/primeflex/primeflex.css');*/
+
+.card{
+  position: relative;
+  float:left;
+  width: 25%;
+  height: fit-content;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+}
+p-button{
+ position: relative;
+ float:left;
+ margin-bottom: 10px;
+ margin-top: 10px;
+ margin-left: 20px;
+
+}
+.label{
+  position: relative;
+  float: left;
+  margin-top: 5px;
+  padding-top: 10px;
+  margin-bottom: 3px;
+}
+/*.p-dropdown{
+  position: relative;
+  float: left;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}*/
+.button{
+  position: relative;
+  margin-top: 5px;
+}
+.buttonC{
+  position: relative;
+  float: right ;
+  margin-top: 5px;
+}
+.p-selectButton{
+  position: relative;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+p-chart{
+  margin-left: 20px;
+  position: relative;
+  float: left;
+  width: 70%;
+  height: 80%;
+}

@@ -1,0 +1,38 @@
+<div class="card">
+  <h3>Burdown Chart</h3>
+  <div class="field">
+    <label class="label" *ngIf="show==false">Digite el id de su tablero</label>
+    <input *ngIf="show==false" type="text" [(ngModel)]="boardID" pInputText />
+  </div>
+  <p-button class="button" *ngIf="show==false" label="Submit" [text]="true" [raised]="true" severity="info"
+    [loading]="loading" (onClick)="load()"></p-button>
+
+    <div class="field">
+  <label class="label" *ngIf="show==true">Selecciones su grupo</label>
+  <p-dropdown class="p-dropdown" *ngIf="show==true" [options]="groups" [(ngModel)]="selectgroup" optionLabel="title"
+    [showClear]="true" placeholder="Select group"></p-dropdown>
+  </div>
+  <div class="field">
+  <label class="label" *ngIf="show==true">Columna ESP</label>
+  <p-dropdown class="p-dropdown" *ngIf="showH==true && show==true" [options]="columns" [(ngModel)]="selectESPColums"
+    optionLabel="title" [showClear]="true" placeholder="Select column"></p-dropdown>
+  <input *ngIf="showA==true && show==true" type="text" [(ngModel)]="ESPID" pInputText />
+</div>
+<div class="field">
+  <label class="label" *ngIf="show==true">Columna AED</label>
+  <p-dropdown class="p-dropdown" *ngIf="showH==true && show==true" [options]="columns" [(ngModel)]="selectDateColums"
+    optionLabel="title" [showClear]="true" placeholder="Select column"></p-dropdown>
+  <input *ngIf="showA==true && show==true" type="text" [(ngModel)]="DateID" pInputText />
+</div>
+<div class="field">
+  <label class="label" *ngIf="show==true">Coloque el inicio de su sprint</label>
+  <p-calendar *ngIf="show==true" [(ngModel)]="dateInit"></p-calendar>
+  <p-button class="button" *ngIf="show==true" label="Generar BDC" [text]="true" [raised]="true" severity="info"
+    [loading]="loading" (onClick)="getdata()"></p-button>
+    <p-button class="buttonC"*ngIf="show==true" icon="pi pi-arrow-circle-left" [rounded]="true" [text]="true" [raised]="true" severity="info " (onClick)="clear()"></p-button>
+</div>
+</div>
+
+<p-chart #chart type="line" [data]="data" [options]="options" />
+<p-selectButton class="p-selectButton" [options]="stateOptions" [(ngModel)]="option" optionLabel="label"
+  optionValue="value" (onChange)="onSelectionChange($event)" />
