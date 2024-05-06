@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { environment} from 'src/environments/environment
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +9,7 @@ export class AppComponent implements OnInit{
   title = 'bdc-new';
 
   OnInit{
-    console.log($enviroment.API_URL)
-   console.log($enviroment.API_KEY)
+    console.log(enviroment.API_URL)
+   console.log(enviroment.API_KEY)
   }
 }
