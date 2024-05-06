@@ -21,7 +21,7 @@ RUN npm run build --prod
 FROM nginx:1.25.4-alpine
 
 # Copy the built Angular app to NGINX
-COPY --from=build /usr/src/app/dist/ang-dockerized-app /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/bdc-new /usr/share/nginx/html
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
