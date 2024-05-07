@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from 'src/evironments/environments';
+import { environment } from 'src/evironments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,8 +22,6 @@ export class apiMondayService {
     const data={
       "boardID":boardID
     }
-    //let headers = new HttpHeaders().set('Content-Type', 'application/json')
-    console.log("haciendo solicitud a ")
     return this._http.post(`${environment.API_URL}/api/monday/gr`, data, { headers: headers })
 
   }
@@ -40,8 +38,6 @@ export class apiMondayService {
       "espColumID":espColumID,
       "dateInit":dateInit
     }
-    //let headers = new HttpHeaders().set('Content-Type', 'application/json')
-    console.log("haciendo solicitud a ")
     return this._http.post(`${environment.API_URL}api/monday/items`, data, { headers: headers })
 
   }
@@ -58,8 +54,6 @@ export class apiMondayService {
       "espColumID":espColumID,
       "dateInit":dateInit
     }
-    //let headers = new HttpHeaders().set('Content-Type', 'application/json')
-    console.log("haciendo solicitud a ")
     return this._http.post(`${environment.API_URL}api/monday/Subitems`, data, { headers: headers })
 
   }
