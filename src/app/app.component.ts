@@ -10,7 +10,6 @@ import { environment } from 'src/evironments/environment';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    console.log("PEticiones a ",environment.API_URL)
   }
   title = 'bdc-new';
 

@@ -21,6 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { ChartModule } from 'primeng/chart';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { MeterGroupModule } from 'primeng/metergroup';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
         DropdownModule,
         CalendarModule,
         ChartModule,
-        SelectButtonModule
+        SelectButtonModule,
+        MeterGroupModule
     ]
 })
 export class AppModule { }

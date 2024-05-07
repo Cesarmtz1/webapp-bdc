@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+import { DropdownChangeEvent } from 'primeng/dropdown';
 import { SelectButtonChangeEvent } from 'primeng/selectbutton';
 import { apiMondayService } from 'src/app/services/apimonday.service';
 
@@ -13,6 +14,7 @@ interface City {
   styleUrl: './graph.component.css'
 })
 export class GraphComponent implements OnInit {
+
 
 
 
@@ -34,8 +36,8 @@ export class GraphComponent implements OnInit {
   stateOptions: any[] = [{ label: 'Hus', value: 'hus' }, { label: 'Acts', value: 'Acts' }];
   loading: boolean = false;
   cities: City[] | undefined;
-  selectgroup: any;
-  groups: any;
+  selectBoard: any;
+  boards: any;
   columns: any;
   selectESPColums: any
   selectDateColums: any
@@ -49,9 +51,24 @@ export class GraphComponent implements OnInit {
 ESPID: any;
 DateID: any;
   subitems: any;
+  groups: any;
+selectgroups: any;
+moscow:any;
+  columnsB: any;
+showF=true;
   constructor(
     private _apimondayservice: apiMondayService
-  ) { }
+  ) {
+    this._apimondayservice.getBoards().subscribe(
+      response => {
+        this.boards = response.response
+        console.log(this.boards)
+        this.columns = response.response.columns
+        this.loading = false;
+
+      }
+    )
+  }
   ngOnInit(): void {
     this.documentStyle = getComputedStyle(document.documentElement);
     const textColor = this.documentStyle.getPropertyValue('--text-color');
@@ -112,16 +129,16 @@ DateID: any;
   }
 
   load() {
-    this.loading = true;
+   /* this.loading = true;
     this.showH=true;
-    this._apimondayservice.getGroups(this.boardID).subscribe(
+    this._apimondayservice.getGroups().subscribe(
       response => {
         this.groups = response.response.groups
         this.columns = response.response.columns
         this.loading = false;
         this.show = true;
       }
-    )
+    )*/
 
     //this.show = true;
   }
@@ -137,16 +154,23 @@ DateID: any;
     // Formatear la fecha en el formato deseado (YYYY-MM-DD)
     const dateInit: string = `${año}-${mes < 10 ? '0' + mes : mes}-${dia < 10 ? '0' + dia : dia}`;
    if(this.option== 'hus'){
-    this._apimondayservice.getItems(this.boardID, this.selectgroup.id, this.selectDateColums.id, this.selectESPColums.id, dateInit).subscribe(
+    console.log("pase por aqui")
+    this._apimondayservice.getItems( this.columnsB[0].text, this.selectgroups.id, this.columnsB[2].text,this.columnsB[1].text, dateInit,this.columnsB[3].text,this.columnsB[4].text).subscribe(
       response => {
         this.items = response.responseI
         this.changeData(this.items.labels,this.items.datasetIdeal,this.items.datasetReal)
         this.loading = false;
         this.show = true;
+        this.showF =false;
+        this.moscow = [
+          { label: 'Must', color: '#34d399', value: this.items.moscow.must},
+          { label: 'Should', color: '#fbbf24', value: this.items.moscow.should },
+          { label: 'Could', color: '#60a5fa', value: this.items.moscow.could }
+      ];
       });
     }
     else{
-      this._apimondayservice.getSubItems(this.boardID, this.selectgroup.id, this.DateID, this.ESPID, dateInit).subscribe(
+      this._apimondayservice.getSubItems(this.boardID, this.selectBoard.id, this.DateID, this.ESPID, dateInit).subscribe(
         response => {
           {
             this.subitems = response.responseSI
@@ -198,6 +222,19 @@ clear() {
 this.showA=false;
 this.showH=false;
 this.show = false;
+}
+OnselectBoard(event: any) {
+  this.groups='';
+this.columnsB=event.value.column_values
+this.loading = true;
+this.show = true;
+this._apimondayservice.getGroups(event.value.column_values[0].text).subscribe(
+  response => {
+    this.groups = response.response.data.boards[0].groups
+    this.loading = false;
+    this.show = true;
+  }
+)
 }
 }
 
