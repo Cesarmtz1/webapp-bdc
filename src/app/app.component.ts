@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { environment } from 'src/evironments/environment';
+
 
 @Component({
   selector: 'app-root',
@@ -11,4 +13,5 @@ export class AppComponent implements OnInit {
     console.log("PEticiones a ",environment.API_URL)
   }
   title = 'bdc-new';
+
 }
