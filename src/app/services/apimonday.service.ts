@@ -53,7 +53,7 @@ export class apiMondayService {
       "pyNCID":pyNCID
     }
     console.log(data);
-    return this._http.post(`http://localhost:8080/api/monday/items`, data, { headers: headers })
+    return this._http.post(`${environment.API_URL}/api/monday/items`, data, { headers: headers })
 
   }
   getSubItems(boardID: any,groupID:any,dateColumID:any,espColumID:any,dateInit:any ): Observable<any> {
