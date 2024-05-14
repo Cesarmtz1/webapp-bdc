@@ -14,6 +14,8 @@ export class apiMondayService {
 
 
   getBoards(): Observable<any> {
+    console.log("env1",environment.API_URL);
+    console.log("env2",environment.API_KEY)
     // Alternatively, use object literal notation (less readable for many headers):
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',

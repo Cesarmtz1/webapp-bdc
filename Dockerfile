@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 ENV ENVIRONMENT = 'prod'
-ENV API_URL ="https://api-bdc-v1-prvfgsimwa-uc.a.run.app"
+ENV API_URL = "https://api-bdc-v1-prvfgsimwa-uc.a.run.app"
 ENV API_KEY = '1B2D3C-?j'
 # Install dependencies
 RUN npm install
