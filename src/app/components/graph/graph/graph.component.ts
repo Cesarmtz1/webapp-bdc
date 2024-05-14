@@ -158,6 +158,7 @@ showF=true;
     this._apimondayservice.getItems( this.columnsB[0].text, this.selectgroups.id, this.columnsB[2].text,this.columnsB[1].text, dateInit,this.columnsB[3].text,this.columnsB[4].text).subscribe(
       response => {
         this.items = response.responseI
+        console.log(this.items);
         this.changeData(this.items.labels,this.items.datasetIdeal,this.items.datasetReal)
         this.loading = false;
         this.show = true;
