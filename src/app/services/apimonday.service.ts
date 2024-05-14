@@ -14,7 +14,7 @@ export class apiMondayService {
 
 
   getBoards(): Observable<any> {
-    console.log("env1",environment.API_URL);
+    console.log("env1",environment.API_URL+"/api/monday/gr");
     console.log("env2",environment.API_KEY)
     // Alternatively, use object literal notation (less readable for many headers):
     let headers = new HttpHeaders({
@@ -24,7 +24,7 @@ export class apiMondayService {
   /*  const data={
       "boardID":boardID
     }*/
-    return this._http.get(`${environment.API_URL}/api/monday/br`,  { headers: headers })
+    return this._http.get(environment.API_URL+"/api/monday/gr",  { headers: headers })
 
   }
   getGroups(boardID:any): Observable<any> {
