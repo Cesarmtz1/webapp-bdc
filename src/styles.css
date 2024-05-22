@@ -14,7 +14,7 @@
   height: fit-content;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  background-color: #ffffff;
+
   transition: transform 0.3s ease;
 }
 .card:hover {
@@ -27,7 +27,6 @@
   height: fit-content;
   border: 6px solid #34d399; /* Cambiar el ancho y color del borde */
   box-shadow: 0 8px 8px rgba(5, 242, 25, 0.1); /* Sombra suave */
-  background-color: #ffffff;
   transition: transform 0.3s ease;
 }
 .cardB:hover {

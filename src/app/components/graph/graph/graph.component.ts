@@ -62,7 +62,6 @@ showF=true;
     this._apimondayservice.getBoards().subscribe(
       response => {
         this.boards = response.response
-        console.log(this.boards)
         this.columns = response.response.columns
         this.loading = false;
 
@@ -154,11 +153,9 @@ showF=true;
     // Formatear la fecha en el formato deseado (YYYY-MM-DD)
     const dateInit: string = `${año}-${mes < 10 ? '0' + mes : mes}-${dia < 10 ? '0' + dia : dia}`;
    if(this.option== 'hus'){
-    console.log("pase por aqui")
     this._apimondayservice.getItems( this.columnsB[0].text, this.selectgroups.id, this.columnsB[2].text,this.columnsB[1].text, dateInit,this.columnsB[3].text,this.columnsB[4].text).subscribe(
       response => {
         this.items = response.responseI
-        console.log(this.items);
         this.changeData(this.items.labels,this.items.datasetIdeal,this.items.datasetReal)
         this.loading = false;
         this.show = true;
@@ -171,7 +168,8 @@ showF=true;
       });
     }
     else{
-      this._apimondayservice.getSubItems(this.boardID, this.selectBoard.id, this.DateID, this.ESPID, dateInit).subscribe(
+      //boardID, groupID,dateColumID,espColumID,dateInit,catTypeCID
+      this._apimondayservice.getSubItems(this.columnsB[0].text, this.selectgroups.id, this.columnsB[6].text,this.columnsB[5].text,dateInit,this.columnsB[7].text, ).subscribe(
         response => {
           {
             this.subitems = response.responseSI
@@ -187,7 +185,7 @@ showF=true;
     this.showA=false;
      this.showH=true
      this.changeData(this.items.labels,this.items.datasetIdeal,this.items.datasetReal)
-   }else{
+   }else if(this.subitems){
     this.showH=false
     this.showA =true
     this.changeData(this.subitems.labels,this.subitems.datasetIdeal,this.subitems.datasetReal)
@@ -205,14 +203,14 @@ changeData(labels:any,datasetIdeal:any,datasetReal:any){
         fill: false,
         borderDash: [5, 5],
         borderColor: this.documentStyle.getPropertyValue('--blue-500'),
-        tension: 0.4
+        tension: 1
       },
       {
         label: 'Puntos realizados',
         data: datasetReal,
         fill: false,
         borderColor: this.documentStyle.getPropertyValue('--pink-500'),
-        tension: 0.4
+        tension: 1
       },
     ]
   };

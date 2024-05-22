@@ -14,8 +14,6 @@ export class apiMondayService {
 
 
   getBoards(): Observable<any> {
-    console.log("env1",environment.API_URL+"/api/monday/gr");
-    console.log("env2",environment.API_KEY)
     // Alternatively, use object literal notation (less readable for many headers):
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,7 +22,7 @@ export class apiMondayService {
   /*  const data={
       "boardID":boardID
     }*/
-    return this._http.get(environment.API_URL+"/api/monday/gr",  { headers: headers })
+    return this._http.get(environment.API_URL+"/api/monday/br",  { headers: headers })
 
   }
   getGroups(boardID:any): Observable<any> {
@@ -54,11 +52,11 @@ export class apiMondayService {
       "moscowCID": moscowCID,
       "pyNCID":pyNCID
     }
-    console.log(data);
+
     return this._http.post(`${environment.API_URL}/api/monday/items`, data, { headers: headers })
 
   }
-  getSubItems(boardID: any,groupID:any,dateColumID:any,espColumID:any,dateInit:any ): Observable<any> {
+  getSubItems(boardID: any,groupID:any,dateColumID:any,espColumID:any,dateInit:any,catTypeCID:any ): Observable<any> {
     // Alternatively, use object literal notation (less readable for many headers):
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -69,9 +67,10 @@ export class apiMondayService {
       "groupID":groupID,
       "dateColumID":dateColumID,
       "espColumID":espColumID,
-      "dateInit":dateInit
+      "dateInit":dateInit,
+      "catTypeCID":catTypeCID
     }
-    return this._http.post(`${environment.API_URL}api/monday/Subitems`, data, { headers: headers })
+    return this._http.post(`${environment.API_URL}/api/monday/Subitems`, data, { headers: headers })
 
   }
 
