@@ -203,14 +203,14 @@ changeData(labels:any,datasetIdeal:any,datasetReal:any){
         fill: false,
         borderDash: [5, 5],
         borderColor: this.documentStyle.getPropertyValue('--blue-500'),
-        tension: 1
+        tension: 0.4
       },
       {
         label: 'Puntos realizados',
         data: datasetReal,
         fill: false,
         borderColor: this.documentStyle.getPropertyValue('--pink-500'),
-        tension: 1
+        tension:0.4
       },
     ]
   };
